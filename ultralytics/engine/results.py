@@ -719,7 +719,7 @@ class Results(SimpleClass):
                     kpt = torch.cat((kpts[j].xyn, kpts[j].conf[..., None]), 2) if kpts[j].has_visible else kpts[j].xyn
                     line += (*kpt.reshape(-1).tolist(),)
                 line += (conf,) * save_conf + (() if id is None else (id,))
-                texts.append((self.names[c] + "%g " * len(line)).rstrip() % line)
+                texts.append((self.names[c] + " %g " * len(line)).rstrip() % line)
 
         if texts:
             Path(txt_file).parent.mkdir(parents=True, exist_ok=True)  # make directory
